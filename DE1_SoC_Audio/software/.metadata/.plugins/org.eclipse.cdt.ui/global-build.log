@@ -1,0 +1,648 @@
+16:13:45 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+J:/altera/16.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+23:41:15 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling AUDIO.c to obj/default/AUDIO.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/AUDIO.o AUDIO.c
+Info: Compiling I2C.c to obj/default/I2C.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/I2C.o I2C.c
+Info: Compiling LED.c to obj/default/LED.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/LED.o LED.c
+Info: Compiling SEG7.c to obj/default/SEG7.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/SEG7.o SEG7.c
+Info: Compiling debug.c to obj/default/debug.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/debug.o debug.c
+debug.c: In function 'myprintf_hex_array':
+debug.c:72:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+         sprintf(szText, "[%02X]", *(pHex+i));
+                 ^
+In file included from c:\intelfpga_lite\17.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from debug.c:32:
+c:\intelfpga_lite\17.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:258:5: note: expected 'char * restrict' but argument is of type 'unsigned char *'
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+     ^
+In file included from my_includes.h:53:0,
+                 from debug.c:34:
+debug.c:73:16: warning: pointer targets in passing argument 1 of 'myprintf' differ in signedness [-Wpointer-sign]
+         DEBUG((szText));
+                ^
+debug.h:47:42: note: in definition of macro 'DEBUG'
+ #define DEBUG(x)               {myprintf x;}  // standard in/out, specifed in project (it could be uart, jtag, or lcd)
+                                          ^
+debug.c:53:5: note: expected 'char *' but argument is of type 'unsigned char *'
+ int myprintf(char *format, ...){
+     ^
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+23:41:22 **** Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+23:45:08 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+23:48:37 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+23:48:39 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+23:48:57 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+23:51:17 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+23:51:19 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+23:51:37 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+00:06:18 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+00:06:19 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+00:06:28 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+00:15:18 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+00:15:20 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+00:15:29 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+00:17:19 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+00:17:20 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+00:17:25 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+00:17:27 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+00:17:35 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+00:33:22 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+00:34:38 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+00:42:24 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+00:47:38 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+01:13:15 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+01:25:51 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+                      printf("[%d] %d/%d\n", PlayLen, (short)((data >> 16) & 0xFFFF), (short)(data & 0xFFFF));
+                             ^
+main.c:467:29: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+01:51:42 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+01:51:45 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio_bsp ****
+make all 
+[BSP build complete]
+01:51:52 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+01:55:12 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+02:07:28 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+02:12:25 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+02:17:12 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../DE1_SoC_Audio_bsp//HAL/inc -I../DE1_SoC_Audio_bsp/ -I../DE1_SoC_Audio_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'button_monitor_start':
+main.c:170:22: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+     if (bSuccess && (alt_irq_register(KEY_IRQ, (void *)pPressedMask, button_monitor_isr) != 0)){
+                      ^
+main.c: In function 'main':
+main.c:395:26: warning: unused variable 'bZeroCross' [-Wunused-variable]
+                     bool bZeroCross = ui_is_dac_zero_cross();
+                          ^
+main.c:429:42: warning: pointer targets in passing argument 1 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                          ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+main.c:429:52: warning: pointer targets in passing argument 2 of 'AUDIO_AdcFifoGetData' differ in signedness [-Wpointer-sign]
+                     AUDIO_AdcFifoGetData(&ch_left, &ch_right);
+                                                    ^
+In file included from main.c:66:0:
+AUDIO.h:88:6: note: expected 'short int *' but argument is of type 'alt_u16 * {aka short unsigned int *}'
+ void AUDIO_AdcFifoGetData(short *pch_left, short *pch_right);
+      ^
+Info: Linking DE1_SoC_Audio.elf
+nios2-elf-g++  -T'../DE1_SoC_Audio_bsp//linker.x' -msys-crt0='../DE1_SoC_Audio_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../DE1_SoC_Audio_bsp/   -Wl,-Map=DE1_SoC_Audio.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o DE1_SoC_Audio.elf obj/default/AUDIO.o obj/default/I2C.o obj/default/LED.o obj/default/SEG7.o obj/default/debug.o obj/default/main.o -lm 
+nios2-elf-insert DE1_SoC_Audio.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x5101048 --timestamp 1471402818 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name audio_nios --quartus_project_dir "C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio" --jdi C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../DE1_SoC_Audio.jdi --sopcinfo C:/Users/maxch/OneDrive/Desktop/DE1-SoC_v.5.1.1_HWrevF_SystemCD/Demonstrations/FPGA/DE1_SoC_Audio/software/DE1_SoC_Audio_bsp/../../audio_nios.sopcinfo
+Info: (DE1_SoC_Audio.elf) 95 KBytes program size (code + initialized data).
+Info:                     210 KBytes free for stack + heap.
+Info: Creating DE1_SoC_Audio.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source DE1_SoC_Audio.elf >DE1_SoC_Audio.objdump
+[DE1_SoC_Audio build complete]
+02:19:29 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+02:25:32 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+02:26:47 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+02:28:25 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
+02:29:04 **** Incremental Build of configuration Nios II for project DE1_SoC_Audio ****
+make all 
+Info: Building ../DE1_SoC_Audio_bsp/
+C:/intelFPGA_lite/17.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../DE1_SoC_Audio_bsp/
+[BSP build complete]
+[DE1_SoC_Audio build complete]
